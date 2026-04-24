@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+
+# Tooling
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Build and packaging
+build/
+dist/
+*.egg-info/
+
+# Environment and secrets
+.env
+.env.*
+secrets/
+credentials/
+*.pem
+*.key
+
+# Data artifacts (keep raw/large data out of git)
+data/raw/
+data/interim/
+data/processed/
+
+# Model artifacts
+models/
+checkpoints/
+*.h5
+*.pt
+*.pth
+
+# Logs and runtime files
+logs/
+*.log
+
+# OS / editor
+.DS_Store
+.vscode/
