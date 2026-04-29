@@ -1,0 +1,47 @@
+# =============================================================================
+# NIH Chest X-ray Binary Classification — Project Requirements
+# =============================================================================
+# Install with:   pip install -r requirements.txt
+# Python 3.10+ recommended (3.13 works; 3.14 may need careful build wheels).
+# =============================================================================
+
+# ---- Phase 1: BigQuery + data wrangling ----
+google-cloud-bigquery>=3.11.0
+google-cloud-bigquery-storage>=2.24.0   # faster bulk reads via BQ Storage API
+google-cloud-storage>=2.10.0            # for GCS image downloads
+google-auth>=2.14.0                     # service account credentials
+db-dtypes>=1.2.0                        # required by .to_dataframe()
+pyarrow>=14.0.0                         # speeds up .to_dataframe() significantly
+pandas>=2.0.0
+numpy>=1.24.0
+
+# ---- Phase 2: image pipeline ----
+torch>=2.1.0
+torchvision>=0.16.0
+Pillow>=10.0.0
+scikit-learn>=1.3.0                     # StratifiedGroupKFold, metrics
+tqdm>=4.65.0                            # progress bars for downloads/training
+# opencv-python-headless>=4.8.0         # only needed if you enable CLAHE
+
+# ---- Phase 3: modeling ----
+# torch + torchvision above already include ResNet/EfficientNet pretrained models
+# Uncomment if you want a wider zoo (DenseNet variants, ViT, ConvNeXt, etc.):
+# timm>=0.9.0
+
+# ---- Phase 4: evaluation + statistical analysis ----
+matplotlib>=3.7.0
+seaborn>=0.13.0
+# scikit-learn already pulled in above (precision/recall/F1/ROC/AUC/confusion matrix)
+
+# ---- Phase 5: interpretation / explainability ----
+# Pick ONE of these for Grad-CAM-style visualizations — don't need both:
+grad-cam>=1.5.0
+# captum>=0.7.0                         # PyTorch-native, more methods, heavier
+
+# ---- Notebook / dev ----
+jupyter>=1.0.0
+ipykernel>=6.25.0
+ipywidgets>=8.1.0                       # nicer tqdm bars in notebooks
+
+# ---- Optional but recommended ----
+python-dotenv>=1.0.0                    # for managing local config / env vars

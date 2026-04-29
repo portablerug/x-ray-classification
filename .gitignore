@@ -26,6 +26,7 @@ secrets/
 credentials/
 *.pem
 *.key
+*.json
 
 # Data artifacts (keep raw/large data out of git)
 data/raw/
@@ -46,3 +47,7 @@ logs/
 # OS / editor
 .DS_Store
 .vscode/
+.cursor/
+
+# Accidentally placed folders
+y/
