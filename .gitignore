@@ -48,6 +48,7 @@ logs/
 .DS_Store
 .vscode/
 .cursor/
+.claude/
 
 # Accidentally placed folders
 y/
