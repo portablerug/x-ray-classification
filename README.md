@@ -65,3 +65,70 @@ Detailed Phase 1 checklist is in `docs/01_phase_1_cloud_setup.md`.
 - Branch and PR workflow is defined in `CONTRIBUTING.md`
 - Team planning cadence and ownership matrix are in `TEAM_ROLES.md`
 - Use issue templates for scoped tasks and progress visibility
+
+## Current Status
+
+- Phase 1 complete — BigQuery metadata ingestion
+- Phase 2 complete — label engineering and patient-level train/val/test split
+- Phase 3 complete — image pipeline and DataLoaders
+- Phase 4 complete — baseline CNN trained and evaluated
+- Phase 5 in progress — transfer learning (ResNet/DenseNet)
+
+## Getting Started (New Team Members)
+
+Follow these steps to get the project running on your machine.
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/portablerug/x-ray-classification.git
+cd x-ray-classification
+```
+
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Get the credentials file
+
+You need the shared Google Cloud service account file to access BigQuery and Cloud Storage.
+Request `nih-xray-ml-8be81f9160f0.json` from the team lead and place it in:
+
+```
+configs/nih-xray-ml-8be81f9160f0.json
+```
+
+Do not commit this file — it is already listed in `.gitignore`.
+You do not need your own GCP account.
+
+### 4. Download the image dataset
+
+The full NIH Chest X-ray dataset (~45 GB) is available for free on Kaggle:
+
+1. Create a free account at kaggle.com
+2. Search for **NIH Chest X-rays** and download the dataset
+3. Extract it to a folder on your machine (an external SSD is recommended due to size)
+4. Note the path to the `archive/` folder — you will set this in the notebooks
+
+### 5. Set your local image path
+
+In `03_image_pipeline.ipynb` and `04_baseline_model.ipynb`, update `ARCHIVE_DIR` to match where you extracted the dataset:
+
+```python
+ARCHIVE_DIR = Path("/your/local/path/to/archive")
+```
+
+This is the only path that differs between teammates.
+
+### 6. Run notebooks in order
+
+| Notebook | What it does |
+|----------|-------------|
+| `01_data_loading.ipynb` | BigQuery connection and metadata pull |
+| `02_label_engineering.ipynb` | Binary labels and train/val/test split |
+| `03_image_pipeline.ipynb` | Image transforms and DataLoaders |
+| `04_baseline_model.ipynb` | Baseline CNN training and evaluation |
+
+Each notebook is self-contained and can be run independently.
