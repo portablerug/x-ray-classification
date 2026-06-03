@@ -32,6 +32,7 @@ credentials/
 data/raw/
 data/interim/
 data/processed/
+data/images/
 
 # Model artifacts
 models/
