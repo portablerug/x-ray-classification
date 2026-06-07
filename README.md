@@ -72,7 +72,25 @@ Detailed Phase 1 checklist is in `docs/01_phase_1_cloud_setup.md`.
 - Phase 2 complete — label engineering and patient-level train/val/test split
 - Phase 3 complete — image pipeline and DataLoaders
 - Phase 4 complete — baseline CNN trained and evaluated
-- Phase 5 in progress — transfer learning (ResNet/DenseNet)
+- Phase 5 complete — transfer learning (ResNet-50), AUC 0.705
+- Phase 6 complete — statistical evaluation, bootstrap CI, clinical interpretation
+- Phase 7 complete — final report and portfolio packaging
+
+## Results
+
+| Model | AUC | Recall | Precision | F1 |
+|-------|-----|--------|-----------|-----|
+| Baseline CNN | 0.611 | — | — | — |
+| ResNet-50 (Transfer) | **0.705** | **0.904** | 0.574 | 0.702 |
+
+- ResNet-50 trained with two-phase transfer learning (frozen backbone → full fine-tune)
+- Threshold tuned on validation set (0.11) to maximize F1
+- High recall makes the model suitable as a screening triage tool
+- Trained on 1,000 images per split — full dataset training expected to improve results significantly
+
+See `notebooks/07_report.ipynb` for the complete project report.
+
+---
 
 ## Getting Started (New Team Members)
 
@@ -130,5 +148,9 @@ This is the only path that differs between teammates.
 | `02_label_engineering.ipynb` | Binary labels and train/val/test split |
 | `03_image_pipeline.ipynb` | Image transforms and DataLoaders |
 | `04_baseline_model.ipynb` | Baseline CNN training and evaluation |
+| `05_transfer_learning.ipynb` | ResNet-50 transfer learning, threshold tuning |
+| `05_transfer_learning.ipynb` | ResNet-50 transfer learning, threshold tuning |
+| `06_evaluation.ipynb` | Statistical evaluation, bootstrap CI, clinical interpretation |
+| `07_report.ipynb` | Final project report with live prediction demo |
 
 Each notebook is self-contained and can be run independently.
