@@ -1,5 +1,7 @@
 # Early Detection of Thoracic Disease Using NIH Chest X-rays
 
+**Live Demo:** https://huggingface.co/spaces/Doraemoons/nih-xray-classifier
+
 End-to-end, cloud-based machine learning project focused on binary chest X-ray classification:
 
 - `Disease Present`
