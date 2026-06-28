@@ -17,16 +17,6 @@ This repository is organized for a 5-person Statistics and Data Science team bui
 - Evaluate performance under class imbalance with clinically relevant metrics
 - Communicate model behavior, failures, and healthcare implications clearly
 
-## Team Roles
-
-- Data Engineer
-- ML Engineer
-- Statistician / Analyst
-- Research / Domain Lead
-- Visualization / Reporting
-
-Role ownership and responsibilities are documented in `TEAM_ROLES.md`.
-
 ## Repository Structure
 
 `docs/`
