@@ -1,0 +1,4 @@
+## to run
+
+python3 "/Users/eva-01/Documents/PSTAT 134/pstat-134-spring2026/X-Ray-classification/gradio/main.py"
+
